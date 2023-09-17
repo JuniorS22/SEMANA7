@@ -1,5 +1,6 @@
 package com.codigo.semana7.infraestructure.entity;
 
+
 import com.codigo.semana7.domain.model.Persona;
 import com.codigo.semana7.domain.model.Usuario;
 import lombok.Getter;
@@ -14,28 +15,28 @@ import javax.persistence.*;
 public class UsuarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nombreUsuario;
-    private String contraseña;
-    private String correElectronico;
+    private String contrasena;
+    private String correoElectronico;
     @OneToOne
-    private Persona persona_id;
+    private PersonaEntity persona;
 
     public UsuarioEntity() {
     }
 
-    public UsuarioEntity(long id, String nombreUsuario, String contraseña, String correElectronico, Persona persona_id) {
+    public UsuarioEntity(Long id, String nombreUsuario, String contrasena, String correoElectronico, PersonaEntity persona) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
-        this.contraseña = contraseña;
-        this.correElectronico = correElectronico;
-        this.persona_id = persona_id;
+        this.contrasena = contrasena;
+        this.correoElectronico = correoElectronico;
+        this.persona = persona;
     }
 
     public static UsuarioEntity fromDomainModel(Usuario usuario){
-        return new UsuarioEntity(usuario.getId(),usuario.getNombreUsuario(),usuario.getContraseña(),usuario.getCorreElectronico(),usuario.getPersona_id());
+        return new UsuarioEntity(usuario.getId(), usuario.getNombreUsuario(), usuario.getContrasena(), usuario.getCorreoElectronico(), usuario.getPersona());
     }
     public Usuario toDomainModel(){
-        return new Usuario(id,nombreUsuario,contraseña,correElectronico,persona_id);
+        return new Usuario(id,nombreUsuario,contrasena,correoElectronico,persona);
     }
 }

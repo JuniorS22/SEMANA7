@@ -18,14 +18,17 @@ public class ApplicationConfig {
         return new PersonaService(new PersonaUseCaseImpl(personaRepositoryPort));
 
     }
+    @Bean
     public PersonaRepositoryPort personaRepositoryPort(PersonaJpaRepositoryAdapter personaJpaRepositoryAdapter){
         return personaJpaRepositoryAdapter;
     }
+
     @Bean
     public UsuarioService usuarioService(UsuarioRepositoryPort usuarioRepositoryPort){
         return new UsuarioService(new UsuarioUseCaseImpl(usuarioRepositoryPort));
 
     }
+    @Bean
     public UsuarioRepositoryPort usuarioRepositoryPort(UsuarioJpaRepositoryAdapter usuarioJpaRepositoryAdapter){
         return usuarioJpaRepositoryAdapter;
     }

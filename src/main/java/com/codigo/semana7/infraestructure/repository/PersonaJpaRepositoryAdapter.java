@@ -30,20 +30,13 @@ public class PersonaJpaRepositoryAdapter implements PersonaRepositoryPort {
     @Override
     public Persona update(Persona persona) {
         PersonaEntity personaEntity=PersonaEntity.fromDomainModel(persona);
-
-        // Actualiza los campos de la entidad con los valores de la persona recibida
-
-        // Guarda la entidad actualizada en la base de datos
         PersonaEntity updatedPersonaEntity = personaJpaRepository.save(personaEntity);
         return updatedPersonaEntity.toDomainModel();
     }
 
     @Override
     public void delete(Long id) {
-
-            personaJpaRepository.deleteById(id);
-
-
+        personaJpaRepository.deleteById(id);
     }
 
 

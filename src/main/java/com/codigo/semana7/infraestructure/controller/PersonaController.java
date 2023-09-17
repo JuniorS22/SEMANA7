@@ -2,7 +2,6 @@ package com.codigo.semana7.infraestructure.controller;
 
 import com.codigo.semana7.application.service.PersonaService;
 import com.codigo.semana7.domain.model.Persona;
-import com.sun.source.tree.TryTree;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,12 +33,7 @@ public class PersonaController {
     }
     @DeleteMapping("/{personaId}")
     public ResponseEntity<String> deletePersona(@PathVariable Long personaId){
-        try {
-            personaService.borrarPersona(personaId);
-            return  new ResponseEntity<>("eliminado",HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>("No eliminado",HttpStatus.BAD_REQUEST);
-        }
-
+        personaService.borrarPersona(personaId);
+        return new ResponseEntity<>("Persona eliminada", HttpStatus.OK);
     }
 }
