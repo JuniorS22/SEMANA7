@@ -94,8 +94,12 @@
 				</executions>
 				<configuration>
 					<excludes>
-						<exclude>com/codigo/semana7/application/service/**</exclude>
-
+						<exclude>com/codigo/semana7/application/**</exclude>
+						<exclude>com/codigo/semana7/domain/**</exclude>
+						<exclude>com/codigo/semana7/infraestructure/config/**</exclude>
+						<exclude>com/codigo/semana7/infraestructure/controller/**</exclude>
+						<exclude>com/codigo/semana7/infraestructure/entity/**</exclude>
+						<exclude>com/codigo/semana7/EjemploDeHexagonalApplication.class</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
